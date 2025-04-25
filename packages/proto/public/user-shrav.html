@@ -3,18 +3,40 @@
     <head>
         <meta charset="UTF-8" />
         <title>Shrav's Profile</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="/styles/reset.css" />
         <link rel="stylesheet" href="/styles/page.css" />
     </head>
     <body>
-        <h1>Shrav</h1>
-        <p>DIY woodworker sharing beginner-friendly project builds.</p>
-
-        <h2>Projects by Shrav</h2>
-        <ul>
-            <li><a href="project1.html">Wooden Coffee Table</a></li>
-            <li><a href="project2.html">Birdhouse</a></li>
-        </ul>
-
-        <a href="index.html">← Back to Projects</a>
+        <header class="site-header">
+            <div class="logo">🪵</div>
+            <h1>Woodworking Hub</h1>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="materials.html">Materials</a>
+                <a href="user-shrav.html">Profile</a>
+            </nav>
+        </header>
+        <main class="main-content">
+            <h2>Shrav</h2>
+            <p>DIY woodworker sharing beginner-friendly project builds.</p>
+            <h2>Projects by Shrav</h2>
+            <div class="project-list">
+                <div class="card">
+                    <h3><a href="project1.html">Wooden Coffee Table</a></h3>
+                    <p>Submitted by Shrav</p>
+                </div>
+                <div class="card">
+                    <h3><a href="project2.html">Birdhouse</a></h3>
+                    <p>Submitted by Shrav</p>
+                </div>
+            </div>
+        </main>
     </body>
 </html>

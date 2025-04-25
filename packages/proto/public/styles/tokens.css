@@ -2,19 +2,23 @@
     /* Backgrounds */
     --color-background-page: #f4f4f4;
     --color-background-header: #2c3e50;
-  
+
     /* Text */
     --color-text: #222;
     --color-text-inverted: #ffffff;
-  
+
     /* Accent Colors */
     --color-accent: #2980b9;
     --color-accent-light: #3498db;
-  
+
     /* Links */
     --color-link: var(--color-accent);
     --color-link-hover: var(--color-accent-light);
-  
+
     /* Borders */
     --color-border: #ccc;
-  }
+
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 2rem;
+}

@@ -13,7 +13,7 @@ header {
     padding: 1em;
 }
 
-h1,h2,h3 {
+h1, h2, h3 {
     font-family: "Merriweather", serif;
 }
 
@@ -45,4 +45,72 @@ svg.icon {
     vertical-align: middle;
     margin-right: 0.5em;
     fill: currentColor;
-  }
+}
+
+/* Layout Grid */
+.grid-layout {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main";
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+/* Header */
+.site-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-md);
+    background-color: var(--color-background-header);
+    color: var(--color-text-inverted);
+}
+
+.site-header h1 {
+    font-family: "Merriweather", serif;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+
+.site-nav a {
+    margin-left: 1rem;
+    color: var(--color-text-inverted);
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+}
+
+/* Main Content */
+.main-content {
+    grid-area: main;
+    padding: var(--spacing-lg);
+    font-family: "Inter", sans-serif;
+}
+
+.project-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--color-border);
+    padding: var(--spacing-md);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.intro {
+    margin-bottom: var(--spacing-lg);
+}
+
+.featured-projects {
+    margin-top: var(--spacing-lg);
+}
+
+.featured-projects h2 {
+    margin-bottom: var(--spacing-md);
+}
