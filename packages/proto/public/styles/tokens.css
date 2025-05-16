@@ -22,3 +22,10 @@
     --spacing-md: 1rem;
     --spacing-lg: 2rem;
 }
+
+body.dark-mode {
+    --color-background-page: #1a1a1a;
+    --color-text: #f0f0f0;
+    --color-background-header: #333;
+    --color-border: #444;
+  }

@@ -11,6 +11,7 @@
         <title>Woodworking Projects</title>
         <link rel="stylesheet" href="/styles/reset.css" />
         <link rel="stylesheet" href="/styles/page.css" />
+        <link rel="stylesheet" href="/styles/tokens.css" />
     </head>
 
     <body>
@@ -23,30 +24,40 @@
                 <a href="materials.html">Materials</a>
                 <a href="user-shrav.html">Profile</a>
             </nav>
+            <label id="dark-toggle">
+                <input type="checkbox" autocomplete="off" />
+                Dark Mode
+            </label>
         </header>
         <div class="grid-layout">
             <main class="main-content">
                 <section class="intro">
-                  <h2>Welcome to Woodworking Hub</h2>
-                  <p>Browse woodworking projects, discover new ideas, and post your own builds to inspire others.</p>
+                    <h2>Welcome to Woodworking Hub</h2>
+                    <p>
+                        Browse woodworking projects, discover new ideas, and
+                        post your own builds to inspire others.
+                    </p>
                 </section>
-              
+
                 <section class="featured-projects">
-                  <h2>Featured Projects</h2>
-                  <div class="project-list">
-                    <div class="card">
-                        <h3><a href="project1.html">Wooden Coffee Table</a></h3>
-                        <p>Minimalistic, easy-to-build coffee table</p>
-                        <p>Submitted by Shrav</p>
+                    <h2>Featured Projects</h2>
+                    <div class="project-list">
+                        <div class="card">
+                            <h3>
+                                <a href="project1.html">Wooden Coffee Table</a>
+                            </h3>
+                            <p>Minimalistic, easy-to-build coffee table</p>
+                            <p>Submitted by Shrav</p>
+                        </div>
+                        <div class="card">
+                            <h3><a href="project2.html">Birdhouse</a></h3>
+                            <p>DIY Birdhouse for your backyard</p>
+                            <p>Submitted by Shrav</p>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h3><a href="project2.html">Birdhouse</a></h3>
-                        <p>DIY Birdhouse for your backyard</p>
-                        <p>Submitted by Shrav</p>
-                    </div>
-                  </div>
                 </section>
-              </main>
+            </main>
         </div>
+        <script src="/scripts/darkmode.js" type="module"></script>
     </body>
 </html>

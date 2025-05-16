@@ -96,7 +96,8 @@ svg.icon {
 }
 
 .card {
-    background: white;
+    background-color: var(--color-background-page);
+    color: var(--color-text);
     border: 1px solid var(--color-border);
     padding: var(--spacing-md);
     border-radius: 0.5rem;
