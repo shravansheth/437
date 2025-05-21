@@ -1,5 +1,6 @@
 import { html, css, LitElement } from "lit";
 import { property } from "lit/decorators.js";
+import reset from "./styles/reset.css.ts"; 
 
 export class WoodProjectElement extends LitElement {
   @property() title = "";
@@ -18,13 +19,27 @@ export class WoodProjectElement extends LitElement {
     `;
   }
 
-  static styles = css`
-    .card {
-      background: white;
-      border: 1px solid var(--color-border);
-      padding: var(--spacing-md);
+  static styles = [
+  reset.styles,
+  css`
+    :host {
+      display: block;
+      background-color: var(--color-background-card, #fff);
+      color: var(--color-text, #000);
+      border: 1px solid var(--color-accent, #ccc);
       border-radius: 0.5rem;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+      margin: 0.5rem 0;
     }
-  `;
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    p {
+      margin-bottom: 0.25rem;
+    }
+  `
+];
 }
