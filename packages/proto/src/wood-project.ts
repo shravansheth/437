@@ -14,7 +14,6 @@ export class WoodProjectElement extends LitElement {
         <h3>${this.title}</h3>
         <p>${this.description}</p>
         <p>Submitted by ${this.submitter}</p>
-        <p>Tools: ${this.tools}</p>
       </div>
     `;
   }
