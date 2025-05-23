@@ -3,6 +3,7 @@ import { property } from "lit/decorators.js";
 import reset from "./styles/reset.css.ts"; 
 
 export class WoodProjectElement extends LitElement {
+  @property() href = "#";
   @property() title = "";
   @property() description = "";
   @property() submitter = "";
@@ -11,7 +12,7 @@ export class WoodProjectElement extends LitElement {
   override render() {
     return html`
       <div class="card">
-        <h3>${this.title}</h3>
+        <h3><a href="${this.href}">${this.title}</a></h3>
         <p>${this.description}</p>
         <p>Submitted by ${this.submitter}</p>
       </div>
