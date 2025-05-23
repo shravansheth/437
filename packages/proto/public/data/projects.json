@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Wooden Coffee Table",
+    "submitter": "Shrav",
+    "tools": "Circular Saw, Drill",
+    "description": "Minimalistic, easy-to-build coffee table",
+    "href": "project1.html"
+  },
+  {
+    "title": "Birdhouse",
+    "submitter": "Shrav",
+    "tools": "Hammer, Nails, Wood Glue",
+    "description": "DIY Birdhouse for your backyard",
+    "href": "project2.html"
+  }
+]

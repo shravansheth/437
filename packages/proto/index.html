@@ -41,41 +41,55 @@
 
                 <section class="featured-projects">
                     <h2>Featured Projects</h2>
-                    <div class="project-list">
-                        <!-- <div class="card">
-                            <h3>
-                                <a href="project1.html">Wooden Coffee Table</a>
-                            </h3>
-                            <p>Minimalistic, easy-to-build coffee table</p>
-                            <p>Submitted by Shrav</p>
-                        </div> -->
+                    <!-- <div class="project-list">
                         <wood-project
                             title="Wooden Coffee Table"
                             description="Minimalistic, easy-to-build coffee table"
                             submitter="Shrav"
                             href="project1.html"
-                        ></wood-project> 
-                        <!-- <div class="card">
-                            <h3><a href="project2.html">Birdhouse</a></h3>
-                            <p>DIY Birdhouse for your backyard</p>
-                            <p>Submitted by Shrav</p>
-                        </div> -->
+                        ></wood-project>
                         <wood-project
                             title="Birdhouse"
                             description="Birdhouse for your backyard"
                             submitter="Shrav"
                             href="project2.html"
-                        ></wood-project> 
-                    </div>
+                        ></wood-project>
+                    </div> -->
+                    <project-list src="/data/projects.json">
+                        <!-- Temporary fallback content while developing (can be removed later) -->
+                        <wood-project
+                            title="Wooden Coffee Table"
+                            submitter="Shrav"
+                            tools="Circular Saw, Drill"
+                            description="Minimalistic, easy-to-build coffee table"
+                            href="project1.html"
+                        ></wood-project>
+                        <wood-project
+                            title="Birdhouse"
+                            submitter="Shrav"
+                            tools="Hammer, Nails, Wood Glue"
+                            description="DIY Birdhouse for your backyard"
+                            href="project2.html"
+                        ></wood-project>
+                    </project-list>
                 </section>
             </main>
         </div>
         <script src="/scripts/darkmode.js" type="module"></script>
-        <script type="module">
+        <!-- <script type="module">
             import { define } from "@calpoly/mustang";
             import { WoodProjectElement } from "/src/wood-project.ts";
-          
+
             define({ "wood-project": WoodProjectElement });
+        </script> -->
+        <script type="module">
+            import { define } from "@calpoly/mustang";
+            import { WoodProjectElement } from "/src/wood-project.js";
+            import "/src/project-list.js";
+
+            define({
+                "wood-project": WoodProjectElement,
+            });
         </script>
     </body>
-</html> 
+</html>
