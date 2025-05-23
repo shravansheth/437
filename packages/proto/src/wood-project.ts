@@ -40,6 +40,15 @@ export class WoodProjectElement extends LitElement {
     p {
       margin-bottom: 0.25rem;
     }
+
+    a {
+    color: var(--color-link);
+    text-decoration: none;
+    }
+
+    a:hover {
+    color: var(--color-link-hover);
+    }
   `
 ];
 }
