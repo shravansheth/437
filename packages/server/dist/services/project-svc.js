@@ -40,4 +40,19 @@ function index() {
 function get(slug) {
   return ProjectModel.findOne({ slug });
 }
-var project_svc_default = { index, get };
+function create(json) {
+  const p = new ProjectModel(json);
+  return p.save();
+}
+function update(slug, project) {
+  return ProjectModel.findOneAndUpdate({ slug }, project, { new: true }).then((updated) => {
+    if (!updated) throw `${slug} not updated`;
+    return updated;
+  });
+}
+function remove(slug) {
+  return ProjectModel.findOneAndDelete({ slug }).then((deleted) => {
+    if (!deleted) throw `${slug} not deleted`;
+  });
+}
+var project_svc_default = { index, get, create, update, remove };

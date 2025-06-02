@@ -1,14 +1,22 @@
 import express, { Request, Response } from "express";
 import { connect } from "./services/mongo";
 connect("Woodworking");
-
+import projects from "./routes/projects";
 import Projects from "./services/project-svc";
+import auth, { authenticateUser } from "./routes/auth";
+import projectRoutes from "./routes/projects";
+
 
 const app = express();
 const port = process.env.PORT || 3000;
 const staticDir = process.env.STATIC || "public";
 
 app.use(express.static(staticDir));
+app.use(express.json());
+app.use("/auth", auth);
+
+app.use("/projects", authenticateUser, projectRoutes);
+app.use("/api/projects", projects);
 
 app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");

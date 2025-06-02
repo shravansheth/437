@@ -23,12 +23,19 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var import_express = __toESM(require("express"));
 var import_mongo = require("./services/mongo");
+var import_projects = __toESM(require("./routes/projects"));
 var import_project_svc = __toESM(require("./services/project-svc"));
+var import_auth = __toESM(require("./routes/auth"));
+var import_projects2 = __toESM(require("./routes/projects"));
 (0, import_mongo.connect)("Woodworking");
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
 const staticDir = process.env.STATIC || "public";
 app.use(import_express.default.static(staticDir));
+app.use(import_express.default.json());
+app.use("/auth", import_auth.default);
+app.use("/projects", import_auth.authenticateUser, import_projects2.default);
+app.use("/api/projects", import_projects.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });
