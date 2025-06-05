@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Woodworking Hub</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+  </head>
+  <body>
+    <mu-history provides="wood:history">
+      <mu-auth provides="wood:auth" redirect="/app">
+        <main>
+          <h1>Login</h1>
+          <mu-login></mu-login>
+        </main>
+      </mu-auth>
+    </mu-history>
+
+    <!-- <script type="module">
+      import { define, Auth, History, Login } from "@calpoly/mustang";
+
+      define({
+        "mu-history": History.Provider,
+        "mu-auth": Auth.Provider,
+        "mu-login": Login.Element
+      });
+    </script> -->
+    <script type="module" src="/src/login.ts"></script>
+  </body>
+</html>

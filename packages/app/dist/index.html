@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Woodworking Projects</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <script type="module" crossorigin src="/assets/index-BWQ_8sjg.js"></script>
+  </head>
+
+  <body>
+    <mu-history provides="wood:history">
+      <mu-auth provides="wood:auth" redirect="/login.html">
+        <article class="page">
+          <header class="site-header">
+            <div class="logo">🪵</div>
+            <h1>Woodworking Hub</h1>
+            <nav class="site-nav">
+              <a href="/app">Home</a>
+              <a href="/app/projects">Projects</a>
+              <a href="/app/materials">Materials</a>
+              <a href="/app/profile">Profile</a>
+            </nav>
+            <label id="dark-toggle">
+              <input type="checkbox" autocomplete="off" />
+              Dark Mode
+            </label>
+          </header>
+
+          <!-- SPA view switcher -->
+          <mu-switch></mu-switch>
+        </article>
+      </mu-auth>
+    </mu-history>
+
+    <!-- Dark mode toggle logic -->
+    <!-- <script src="/scripts/darkmode.js" type="module"></script> -->
+
+    <!-- App main entry -->
+  </body>
+</html>
