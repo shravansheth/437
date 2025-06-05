@@ -23,10 +23,10 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 ));
 var import_express = __toESM(require("express"));
 var import_mongo = require("./services/mongo");
-var import_projects = __toESM(require("./routes/projects"));
-var import_project_svc = __toESM(require("./services/project-svc"));
 var import_auth = __toESM(require("./routes/auth"));
-var import_projects2 = __toESM(require("./routes/projects"));
+var import_projects = __toESM(require("./routes/projects"));
+var import_promises = __toESM(require("node:fs/promises"));
+var import_path = __toESM(require("path"));
 (0, import_mongo.connect)("Woodworking");
 const app = (0, import_express.default)();
 const port = process.env.PORT || 3e3;
@@ -34,25 +34,15 @@ const staticDir = process.env.STATIC || "public";
 app.use(import_express.default.static(staticDir));
 app.use(import_express.default.json());
 app.use("/auth", import_auth.default);
-app.use("/projects", import_auth.authenticateUser, import_projects2.default);
+app.use("/projects", import_auth.authenticateUser, import_projects.default);
 app.use("/api/projects", import_projects.default);
 app.get("/hello", (req, res) => {
   res.send("Hello, World");
 });
+app.use("/app", (req, res) => {
+  const indexHtml = import_path.default.resolve(staticDir, "index.html");
+  import_promises.default.readFile(indexHtml, "utf-8").then((html) => res.send(html));
+});
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
-});
-app.get("/projects", (_req, res) => {
-  import_project_svc.default.index().then((data) => {
-    res.set("Content-Type", "application/json").send(JSON.stringify(data));
-  });
-});
-app.get("/projects/:slug", (req, res) => {
-  import_project_svc.default.get(req.params.slug).then((project) => {
-    if (project) {
-      res.set("Content-Type", "application/json").send(JSON.stringify(project));
-    } else {
-      res.status(404).send();
-    }
-  });
 });
