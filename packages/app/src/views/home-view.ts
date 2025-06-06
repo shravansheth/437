@@ -18,7 +18,7 @@ export class HomeViewElement extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    fetch("/api/projects")
+    fetch("/projects")
       .then(res => res.json())
       .then(data => this.projects = data)
       .catch(err => console.error("Failed to fetch projects:", err));
