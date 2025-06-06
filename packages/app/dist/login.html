@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login - Woodworking Hub</title>
+    <link rel="stylesheet" href="/styles/reset.css" />
+    <link rel="stylesheet" href="/styles/page.css" />
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <script type="module" crossorigin src="/assets/login-DyVXnp4H.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/state-Hb2a1ipR.js">
+  </head>
+  <body class="page">
+    <mu-auth provides="wood:auth">
+      <main class="card">
+        <h2>User Login</h2>
+        <login-form api="/auth/login" redirect="/app">
+          <label>
+            Username:
+            <input name="username" />
+          </label>
+          <label>
+            Password:
+            <input type="password" name="password" />
+          </label>
+        </login-form>
+        <!-- <p>Or <a href="/newuser.html">sign up</a></p> -->
+      </main>
+    </mu-auth>
+
+  </body>
+</html>
