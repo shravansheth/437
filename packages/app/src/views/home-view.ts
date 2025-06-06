@@ -17,12 +17,21 @@ export class HomeViewElement extends LitElement {
   projects: Project[] = [];
 
   connectedCallback() {
-    super.connectedCallback();
-    fetch("/projects")
-      .then(res => res.json())
-      .then(data => this.projects = data)
-      .catch(err => console.error("Failed to fetch projects:", err));
-  }
+  super.connectedCallback();
+  const token = localStorage.getItem("token");
+
+  fetch("/api/projects", {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch projects");
+      return res.json();
+    })
+    .then(data => this.projects = data)
+    .catch(err => console.error("Failed to fetch projects:", err));
+}
 
   render() {
     return html`
