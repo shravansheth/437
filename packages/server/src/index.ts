@@ -10,7 +10,7 @@ import path from "path";
 
 const app = express();
 const port = process.env.PORT || 3000;
-const staticDir = process.env.STATIC || "public";
+const staticDir = process.env.STATIC || "../app/dist";
 
 app.use(express.static(staticDir));
 app.use(express.json());
