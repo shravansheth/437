@@ -18,18 +18,28 @@ export class LoginFormElement extends LitElement {
     }
   `;
 
-  render() {
+  override render() {
     return html`
-      <form @change=${this.handleChange} @submit=${this.handleSubmit}>
+      <form
+        @change=${(e: InputEvent) => this.handleChange(e)}
+        @submit=${(e: SubmitEvent) => this.handleSubmit(e)}
+      >
         <slot></slot>
-        <button type="submit" ?disabled=${!this.canSubmit}>Login</button>
+        <slot name="button">
+          <button
+            ?disabled=${!this.canSubmit}
+            type="submit">
+            Login
+          </button>
+        </slot>
         <p class="error">${this.error}</p>
       </form>
     `;
   }
 
-  get canSubmit() {
-    return this.formData.username && this.formData.password;
+  get canSubmit(): boolean {
+    return Boolean(this.api && this.formData.username &&
+      this.formData.password);
   }
 
   handleChange(event: InputEvent) {
@@ -88,3 +98,5 @@ export class LoginFormElement extends LitElement {
     }
   }
 }
+
+customElements.define("login-form", LoginFormElement);
