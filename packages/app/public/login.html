@@ -6,26 +6,35 @@
     <link rel="stylesheet" href="/styles/reset.css" />
     <link rel="stylesheet" href="/styles/page.css" />
     <link rel="stylesheet" href="/styles/tokens.css" />
-  </head>
-  <body>
-    <mu-history provides="wood:history">
-      <mu-auth provides="wood:auth" redirect="/app">
-        <main>
-          <h1>Login</h1>
-          <mu-login></mu-login>
-        </main>
-      </mu-auth>
-    </mu-history>
-
     <script type="module">
-      import { define, Auth, History, Login } from "@calpoly/mustang";
+      import { define, Auth } from "@calpoly/mustang";
+      import { LoginFormElement } from "/src/auth/login-form.js";
 
       define({
-        "mu-history": History.Provider,
         "mu-auth": Auth.Provider,
-        "mu-login": Login.Element
+        "login-form": LoginFormElement
       });
     </script>
-    <script type="module" src="/src/login.ts"></script>
+  </head>
+  <body>
+    <mu-auth>
+      <h2>User Login</h2>
+      <main class="card">
+        <login-form api="/auth/login">
+          <label>
+            <span>Username:</span>
+            <input name="username" autocomplete="off" />
+          </label>
+          <label>
+            <span>Password:</span>
+            <input type="password" name="password" />
+          </label>
+        </login-form>
+      </main>
+      <!-- <p
+        >Or did you want to
+            <a href="newuser.html">Sign up as a new user</a>?
+      </p> -->
+    </mu-auth>
   </body>
 </html>

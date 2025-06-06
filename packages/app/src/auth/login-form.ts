@@ -1,0 +1,90 @@
+import { html, css, LitElement } from "lit";
+import { property, state } from "lit/decorators.js";
+
+interface LoginFormData {
+  username?: string;
+  password?: string;
+}
+
+export class LoginFormElement extends LitElement {
+  @state() formData: LoginFormData = {};
+  @property() api?: string;
+  @property() redirect: string = "/";
+  @state() error?: string;
+
+  static styles = css`
+    .error {
+      color: red;
+    }
+  `;
+
+  render() {
+    return html`
+      <form @change=${this.handleChange} @submit=${this.handleSubmit}>
+        <slot></slot>
+        <button type="submit" ?disabled=${!this.canSubmit}>Login</button>
+        <p class="error">${this.error}</p>
+      </form>
+    `;
+  }
+
+  get canSubmit() {
+    return this.formData.username && this.formData.password;
+  }
+
+  handleChange(event: InputEvent) {
+  const target = event.target as HTMLInputElement;
+  const name = target?.name;
+  const value = target?.value;
+  const prevData = this.formData;
+
+  switch (name) {
+    case "username":
+      this.formData = { ...prevData, username: value };
+      break;
+    case "password":
+      this.formData = { ...prevData, password: value };
+      break;
+  }
+}
+
+  handleSubmit(submitEvent: SubmitEvent) {
+    submitEvent.preventDefault();
+
+    if (this.canSubmit) {
+      fetch(
+        this?.api || "",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(this.formData)
+        }
+      )
+      .then((res) => {
+        if (res.status !== 200)
+          throw "Login failed";
+        else return res.json();
+      })
+      .then((json: object) => {
+          const { token } = json as { token: string };
+          const customEvent = new CustomEvent(
+          'auth:message', {
+          bubbles: true,
+          composed: true,
+          detail: [
+              'auth/signin',
+              { token, redirect: this.redirect }
+          ]
+          });
+          console.log("dispatching message", customEvent);
+          this.dispatchEvent(customEvent);
+      })
+      .catch((error: Error) => {
+          console.log(error);
+          this.error = error.toString();
+      });
+    }
+  }
+}
