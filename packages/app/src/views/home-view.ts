@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
-import "../wood-project";
+import "../components/wood-project";
 
 interface Project {
   _id: string;
