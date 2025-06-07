@@ -1,5 +1,6 @@
 import { LitElement, html } from "lit";
 import { customElement, state } from "lit/decorators.js";
+import "../wood-project";
 
 interface Project {
   _id: string;
@@ -9,6 +10,7 @@ interface Project {
   description: string;
   slug: string;
   href: string;
+  greg: grimp;
 }
 
 @customElement("home-view")
