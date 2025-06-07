@@ -41,7 +41,7 @@ export class HomeViewElement extends LitElement {
     .catch(err => console.error("Failed to fetch projects:", err));
 }
 
-  render() {
+  override render() {
     return html`
       <section class="intro">
         <h2>Welcome to Woodworking Hub</h2>

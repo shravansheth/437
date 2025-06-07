@@ -52,3 +52,5 @@ export class WoodProjectElement extends LitElement {
   `
 ];
 }
+
+customElements.define("wood-project", WoodProjectElement);
