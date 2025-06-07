@@ -38,7 +38,10 @@
           </header>
 
           <!-- SPA view switcher -->
-          <mu-switch></mu-switch>
+          <mu-switch prefix="/app">
+            <mu-route path="/" element="home-view"></mu-route>
+            <mu-route path="/project/:slug" element="project-view"></mu-route>
+          </mu-switch>
         </article>
       </mu-auth>
     </mu-history>

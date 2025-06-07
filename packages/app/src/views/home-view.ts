@@ -56,7 +56,7 @@ export class HomeViewElement extends LitElement {
             submitter=${p.submitter}
             tools=${p.tools}
             description=${p.description}
-            href="/app/project/${p._id}">
+            href="/app/project/${p.slug}">
           </wood-project>
         `)}
       </section>
