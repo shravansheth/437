@@ -10,7 +10,6 @@ interface Project {
   description: string;
   slug: string;
   href: string;
-  greg: grimp;
 }
 
 @customElement("home-view")
