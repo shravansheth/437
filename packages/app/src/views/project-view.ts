@@ -13,7 +13,7 @@ interface Project {
 }
 
 @customElement("project-view")
-export class ProjectView extends LitElement {
+export class ProjectViewElement extends LitElement {
   @property({ type: String }) slug = "";
   @state() project?: Project;
 
