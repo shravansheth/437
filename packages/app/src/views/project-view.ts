@@ -125,6 +125,3 @@ export class ProjectViewElement extends LitElement {
     `;
   }
 }
-
-
-export { ProjectViewElement };
