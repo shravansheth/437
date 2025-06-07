@@ -17,9 +17,13 @@ export class HomeViewElement extends LitElement {
   @state()
   projects: Project[] = [];
 
-  connectedCallback() {
-  super.connectedCallback();
+  firstUpdated() {
   const token = localStorage.getItem("token");
+  if (!token) {
+    console.warn("Token missing. Redirecting to login.");
+    window.location.href = "/login.html";
+    return;
+  }
 
   fetch("/api/projects", {
     headers: {
@@ -30,7 +34,10 @@ export class HomeViewElement extends LitElement {
       if (!res.ok) throw new Error("Failed to fetch projects");
       return res.json();
     })
-    .then(data => this.projects = data)
+    .then(data => {
+      console.log("Projects loaded:", data);
+      this.projects = data;
+    })
     .catch(err => console.error("Failed to fetch projects:", err));
 }
 
