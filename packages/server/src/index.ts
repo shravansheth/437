@@ -24,7 +24,7 @@ app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");
 });
 
-app.use("/app/*", (req: Request, res: Response) => {
+app.use("/app", (req: Request, res: Response) => {
   const indexHtml = path.resolve(staticDir, "index.html");
   fs.readFile(indexHtml, "utf-8").then((html) => res.send(html));
 });
