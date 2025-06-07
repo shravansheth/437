@@ -11,14 +11,16 @@ router.get("/", (_req: Request, res: Response) => {
 });
 
 // Get one project by slug
-router.get("/:slug", (req: Request, res: Response) => {
+router.get("/:slug", async (req, res) => {
   const { slug } = req.params;
-  Projects.get(slug)
-    .then((project: Project | null) => {
-      if (project) res.json(project);
-      else res.status(404).end();
-    })
-    .catch((err) => res.status(500).send(err));
+
+  try {
+    const project = await Project.findOne({ slug });
+    if (!project) return res.status(404).send("Project not found");
+    res.json(project);
+  } catch (err) {
+    res.status(500).send("Error fetching project");
+  }
 });
 
 router.post("/", (req: Request, res: Response) => {
