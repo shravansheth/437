@@ -33,19 +33,19 @@ app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
 
-// app.get("/projects", (_req: Request, res: Response) => {
-//   Projects.index().then((data) => {
-//     res.set("Content-Type", "application/json").send(JSON.stringify(data));
-//   });
-// });
+app.get("/projects", (_req: Request, res: Response) => {
+  Projects.index().then((data) => {
+    res.set("Content-Type", "application/json").send(JSON.stringify(data));
+  });
+});
 
-// app.get("/projects/:slug", (req: Request, res: Response) => {
-//   Projects.get(req.params.slug).then((project) => {
-//     if (project) {
-//       res.set("Content-Type", "application/json").send(JSON.stringify(project));
-//     } else {
-//       res.status(404).send();
-//     }
-//   });
-// });
+app.get("/projects/:slug", (req: Request, res: Response) => {
+  Projects.get(req.params.slug).then((project) => {
+    if (project) {
+      res.set("Content-Type", "application/json").send(JSON.stringify(project));
+    } else {
+      res.status(404).send();
+    }
+  });
+});
 
