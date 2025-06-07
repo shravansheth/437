@@ -12,7 +12,7 @@ interface Project {
   comments: { user: string; text: string }[];
 }
 
-@customElement("project-view")
+customElements.define("project-view", ProjectViewElement);
 export class ProjectViewElement extends LitElement {
   @property({ type: String }) slug = "";
   @state() project?: Project;
